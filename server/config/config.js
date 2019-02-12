@@ -4,6 +4,6 @@
 module.exports = {
   db: {
       uri: 'mongodb://admin:password1@ds115283.mlab.com:15283/bootcamp3-calebreed', //place the URI of your mongo database here.
-  }, 
+  }
    
 };
