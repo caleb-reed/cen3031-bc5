@@ -26,6 +26,7 @@ exports.create = function(req, res) {
       res.status(400).send(err);
     } else {
       res.json(listing);
+      
     }
   });
 };
@@ -40,23 +41,43 @@ exports.read = function(req, res) {
 exports.update = function(req, res) {
   var listing = req.listing;
 
-  /** TODO **/
-  /* Replace the article's properties with the new properties found in req.body */
-  /* Save the article */
+    listing.name = req.body.name;
+    listing.code = req.body.code;
+    listing.address = req.body.address;
+    listing.coordinates = req.body.coordinates;
+
+    /* Then save the listing */
+    listing.save(function (err) {
+        if (err) {
+            console.log(err);
+            res.status(400).send(err);
+        } else {
+            res.json(listing);
+        }
+    });
 };
 
 /* Delete a listing */
 exports.delete = function(req, res) {
   var listing = req.listing;
-
-  /** TODO **/
-  /* Remove the article */
+    listing.remove( function (err) {
+        if (err) {
+            console.log(err);
+            res.status(400).send(err);
+        } else {
+            res.json(listing);
+        }
+    });
+  
 };
 
 /* Retreive all the directory listings, sorted alphabetically by listing code */
 exports.list = function(req, res) {
-  /** TODO **/
-  /* Your code here */
+    Listing.find({}, function (err, listings) {
+        if (err) throw err;
+
+        res.json(listings);
+    });
 };
 
 /* 

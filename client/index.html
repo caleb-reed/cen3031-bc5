@@ -38,12 +38,14 @@
           </form>
         </div>
         <div class="col-md-6">
-          <div class="jumbotron">
-            <h2>Detailed Information</h2>
-            <h4>{{detailedInfo.name}}</h4>
-            <p>Address: {{detailedInfo.address}}</p>
-            <p>Building Code: {{detailedInfo.code}}</p>
-          </div>
+            <div class="jumbotron">
+                <h2>Detailed Information</h2>
+                <h4>{{detailedInfo.name}}</h4>
+                <p>Address: {{detailedInfo.address}}</p>
+                <p>Building Code: {{detailedInfo.code}}</p>
+                <p>     Latitude: {{ detailedInfo.coordinates.latitude }} </p>
+                <p>     Longitude: {{ detailedInfo.coordinates.longitude }} </p>
+            </div>
         </div>
       </div>
     </div>
